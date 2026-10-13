@@ -16,7 +16,7 @@
 
 # 
 
-# Describe the problem statement, the challenge being addressed, and its significance.
+# Describe the official PS019 problem statement, the challenge being addressed, and its significance.
 
 # 
 
@@ -24,7 +24,7 @@
 
 # 
 
-# Describe the proposed approach, architecture, and expected outcome.
+# Describe the proposed approach, major components, architecture, and expected outcome.
 
 # 
 
@@ -32,7 +32,7 @@
 
 # 
 
-# Add each team member's name and assigned responsibilities.
+# List every team member and their assigned responsibilities.
 
 # 
 
@@ -40,7 +40,7 @@
 
 # 
 
-# See the presentation PDF in this repository.
+# \[View the presentation](presentation.pdf)
 
 # 
 
@@ -48,7 +48,7 @@
 
 # 
 
-# Add the YouTube video link here once uploaded.
+# Add the YouTube video URL here after uploading the team introduction video.
 
 # 
 
@@ -56,5 +56,5 @@
 
 # 
 
-# Initial setup and planning phase.
+# Initial planning and setup. Implementation is pending.
 
