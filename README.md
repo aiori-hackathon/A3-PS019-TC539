@@ -28,3 +28,9 @@ Add the YouTube video URL here after uploading the team introduction video.
 ## Implementation Status
 
 Initial planning and setup. Implementation is pending.
+
+## Team Introduction Video
+
+**Team Cipher — AIORI-3 Hackathon | PS-019**
+
+[Watch our team introduction on YouTube](https://youtu.be/VfAXWC7Eesw)
