@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fieldledger"
+version = "0.0.1"
+description = "FieldLedger: configurable personal-data discovery and privacy evidence inventory (AIORI-3 PS-019, Team Cipher)"
+requires-python = ">=3.10"
+dependencies = ["PyYAML"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

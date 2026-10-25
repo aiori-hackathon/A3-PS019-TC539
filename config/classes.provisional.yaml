@@ -1,0 +1,23 @@
+# PROVISIONAL FIXTURE TAXONOMY.
+# These are neutral placeholders for development and tests. They are NOT the
+# official PS-019 data classes and must not be presented as organizer-approved.
+# When the organizers confirm the five classes, replace this file (or add a new
+# one), set taxonomy_status to "confirmed", and keep required_class_count: 5.
+taxonomy_status: provisional
+required_class_count: 5
+classes:
+  - id: TEST_CLASS_1
+    label: "Test class 1 (provisional placeholder)"
+    description: "Placeholder. Replace with an organizer-confirmed class."
+  - id: TEST_CLASS_2
+    label: "Test class 2 (provisional placeholder)"
+    description: "Placeholder. Replace with an organizer-confirmed class."
+  - id: TEST_CLASS_3
+    label: "Test class 3 (provisional placeholder)"
+    description: "Placeholder. Replace with an organizer-confirmed class."
+  - id: TEST_CLASS_4
+    label: "Test class 4 (provisional placeholder)"
+    description: "Placeholder. Replace with an organizer-confirmed class."
+  - id: TEST_CLASS_5
+    label: "Test class 5 (provisional placeholder)"
+    description: "Placeholder. Replace with an organizer-confirmed class."
