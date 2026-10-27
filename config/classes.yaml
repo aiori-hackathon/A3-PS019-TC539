@@ -1,0 +1,23 @@
+# OFFICIAL PS-019 TAXONOMY (confirmed).
+# Source: the organizer clarification relayed by the team (five classes, in this order).
+# Keep this file in sync with that clarification. The organizers allow sub-types to be
+# added later; this file deliberately stays at class level.
+# config/classes.provisional.yaml is kept only because tests/unit/test_classes.py pins it.
+taxonomy_status: confirmed
+required_class_count: 5
+classes:
+  - id: PERSONAL_IDENTITY
+    label: "Personal identity"
+    description: "Name, date of birth, gender, age."
+  - id: CONTACT_INFORMATION
+    label: "Contact information"
+    description: "Email address, phone number."
+  - id: GOVERNMENT_IDENTIFIERS
+    label: "Government identifiers"
+    description: "Aadhaar, PAN, passport, voter ID, driving licence numbers."
+  - id: FINANCIAL_INFORMATION
+    label: "Financial information"
+    description: "Bank account number, IFSC, card number, UPI ID."
+  - id: LOCATION_ADDRESS
+    label: "Location and address"
+    description: "Postal address, PIN code, geo-coordinates."

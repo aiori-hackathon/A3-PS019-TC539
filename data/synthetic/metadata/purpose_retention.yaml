@@ -1,0 +1,136 @@
+# DECLARED purpose and retention metadata for the synthetic dataset (fictional).
+# Format: one entry per column that declares anything. An absent `purpose` or
+# `retention` key means that value is NOT declared; a personal-data column with no
+# entry at all has neither declared. Gaps are deliberate and seeded.
+# These are technical declarations for testing, not legal statements.
+metadata_origin: team_authored_synthetic
+entries:
+  - {source_key: "app.db", table: "branches", column: "aadhar_number", purpose: "Order fulfilment and delivery", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "branches", column: "account_no", purpose: "Payroll and benefits administration", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "branches", column: "payee_upi", purpose: "Payroll and benefits administration"}
+  - {source_key: "app.db", table: "branches", column: "ph_no", purpose: "Customer onboarding and account servicing", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "app.db", table: "branches", column: "phone", purpose: "Marketing communication (opt-in customers only)", retention: "12 months after last activity"}
+  - {source_key: "app.db", table: "branches", column: "surname", purpose: "Fraud screening and payment verification", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "branches", column: "work_phone", purpose: "Marketing communication (opt-in customers only)"}
+  - {source_key: "app.db", table: "inventory", column: "address", purpose: "Customer onboarding and account servicing", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "inventory", column: "applicant_age", purpose: "Order fulfilment and delivery", retention: "12 months after last activity"}
+  - {source_key: "app.db", table: "inventory", column: "branch_ifsc", purpose: "Payroll and benefits administration", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "inventory", column: "contact_number", purpose: "Payroll and benefits administration", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "inventory", column: "credit_card", purpose: "Know-your-customer record keeping", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "inventory", column: "date_of_birth", purpose: "Customer onboarding and account servicing", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "inventory", column: "em_id", purpose: "Marketing communication (opt-in customers only)"}
+  - {source_key: "app.db", table: "inventory", column: "home_address", purpose: "Know-your-customer record keeping", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "inventory", column: "latitude", purpose: "Customer support and complaint handling", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "inventory", column: "loc_coords", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "app.db", table: "inventory", column: "pan_no", purpose: "Know-your-customer record keeping", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "inventory", column: "pin", purpose: "Fraud screening and payment verification", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "inventory", column: "pin_code", purpose: "Fraud screening and payment verification"}
+  - {source_key: "app.db", table: "inventory", column: "vpa", purpose: "Employee records administration", retention: "7 years from end of financial year"}
+  - {source_key: "app.db", table: "inventory", column: "zipcode", retention: "12 months after last activity"}
+  - {source_key: "app.db", table: "kyc_records", column: "birthdate", purpose: "Know-your-customer record keeping"}
+  - {source_key: "app.db", table: "kyc_records", column: "customer_age", purpose: "Customer support and complaint handling", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "kyc_records", column: "customer_gender", purpose: "Know-your-customer record keeping", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "kyc_records", column: "debit_card_number", purpose: "Marketing communication (opt-in customers only)", retention: "12 months after last activity"}
+  - {source_key: "app.db", table: "kyc_records", column: "driving_licence_number", purpose: "Employee records administration", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "kyc_records", column: "gndr", purpose: "Customer support and complaint handling", retention: "7 years from end of financial year"}
+  - {source_key: "app.db", table: "kyc_records", column: "home_phone", purpose: "Order fulfilment and delivery", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "kyc_records", column: "pan_card_number", purpose: "Know-your-customer record keeping", retention: "7 years from end of financial year"}
+  - {source_key: "app.db", table: "kyc_records", column: "payer_upi_id", purpose: "Order fulfilment and delivery", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "kyc_records", column: "phone_number", purpose: "Fraud screening and payment verification", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "kyc_records", column: "primary_email", purpose: "Employee records administration", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "members", column: "addr_ln1", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "members", column: "address_line1", purpose: "Payroll and benefits administration", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "members", column: "age", purpose: "Customer onboarding and account servicing", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "members", column: "alternate_mobile", purpose: "Marketing communication (opt-in customers only)", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "members", column: "bank_account", purpose: "Order fulfilment and delivery", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "app.db", table: "members", column: "bk_acct", purpose: "Customer onboarding and account servicing"}
+  - {source_key: "app.db", table: "members", column: "contact_detail_1", purpose: "Know-your-customer record keeping", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "members", column: "family_name", purpose: "Marketing communication (opt-in customers only)", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "members", column: "geo_pt", purpose: "Customer support and complaint handling"}
+  - {source_key: "app.db", table: "members", column: "geolocation", purpose: "Payroll and benefits administration", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "members", column: "given_name", purpose: "Employee records administration", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "members", column: "longitude", purpose: "Marketing communication (opt-in customers only)", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "members", column: "pan_number", purpose: "Order fulfilment and delivery", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "members", column: "voter_card_no", purpose: "Order fulfilment and delivery", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "web_events", column: "acc_num", purpose: "Payroll and benefits administration", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "web_events", column: "address_line2", purpose: "Payroll and benefits administration", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "web_events", column: "birth_date", purpose: "Payroll and benefits administration", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "web_events", column: "card_no", purpose: "Customer onboarding and account servicing", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "web_events", column: "card_number", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "web_events", column: "current_address", purpose: "Employee records administration", retention: "12 months after last activity"}
+  - {source_key: "app.db", table: "web_events", column: "gps_location", purpose: "Order fulfilment and delivery", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "web_events", column: "ifs_cd", purpose: "Customer support and complaint handling", retention: "7 years from end of financial year"}
+  - {source_key: "app.db", table: "web_events", column: "last_name", purpose: "Payroll and benefits administration", retention: "24 months after account closure"}
+  - {source_key: "app.db", table: "web_events", column: "mob", purpose: "Employee records administration", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "web_events", column: "permanent_address", purpose: "Fraud screening and payment verification", retention: "36 months after contract end"}
+  - {source_key: "app.db", table: "web_events", column: "postal_code", purpose: "Know-your-customer record keeping", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "web_events", column: "shipping_address", purpose: "Marketing communication (opt-in customers only)"}
+  - {source_key: "app.db", table: "web_events", column: "street_address", purpose: "Employee records administration", retention: "Deleted after 90 days"}
+  - {source_key: "app.db", table: "web_events", column: "voter_id_number", purpose: "Employee records administration", retention: "12 months after last activity"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "aadhaar", retention: "7 years from end of financial year"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "account_number", purpose: "Employee records administration"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "billing_address", purpose: "Marketing communication (opt-in customers only)", retention: "Deleted after 90 days"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "cc_num", purpose: "Know-your-customer record keeping", retention: "36 months after contract end"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "debit_card", purpose: "Customer support and complaint handling"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "employee_name", purpose: "Fraud screening and payment verification", retention: "Deleted after 90 days"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "full_name", purpose: "Customer support and complaint handling", retention: "Deleted after 90 days"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "ifsc_code", purpose: "Know-your-customer record keeping"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "lon", purpose: "Customer support and complaint handling"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "pay_handle", purpose: "Fraud screening and payment verification", retention: "12 months after last activity"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "upi", purpose: "Customer support and complaint handling", retention: "24 months after account closure"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "upi_id", purpose: "Payroll and benefits administration", retention: "36 months after contract end"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "voter_id", purpose: "Know-your-customer record keeping", retention: "36 months after contract end"}
+  - {source_key: "crm/archive/customers.csv", table: "customers", column: "work_email", purpose: "Order fulfilment and delivery", retention: "24 months after account closure"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "acct_no", purpose: "Know-your-customer record keeping", retention: "7 years from end of financial year"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "cust_nm", purpose: "Employee records administration", retention: "7 years from end of financial year"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "customer_phone", purpose: "Payroll and benefits administration", retention: "7 years from end of financial year"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "d_o_b", purpose: "Customer onboarding and account servicing", retention: "36 months after contract end"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "dl_no", purpose: "Order fulfilment and delivery", retention: "Deleted after 90 days"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "driving_license_no", purpose: "Customer support and complaint handling", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "email", purpose: "Employee records administration", retention: "36 months after contract end"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "emergency_contact_number", purpose: "Marketing communication (opt-in customers only)", retention: "36 months after contract end"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "epic_no", purpose: "Know-your-customer record keeping"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "lat", purpose: "Employee records administration", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "mailing_address", purpose: "Know-your-customer record keeping", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "passport_no", purpose: "Customer onboarding and account servicing", retention: "36 months after contract end"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "tax_ref", purpose: "Marketing communication (opt-in customers only)", retention: "36 months after contract end"}
+  - {source_key: "crm/customers.csv", table: "customers", column: "yrs_old", purpose: "Know-your-customer record keeping", retention: "24 months after account closure"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "birthday", purpose: "Employee records administration", retention: "24 months after account closure"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "cell_no", purpose: "Employee records administration", retention: "12 months after last activity"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "contact_email", purpose: "Customer support and complaint handling", retention: "7 years from end of financial year"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "customer_aadhaar", purpose: "Employee records administration", retention: "24 months after account closure"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "customer_email", purpose: "Payroll and benefits administration", retention: "7 years from end of financial year"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "mobile_no", purpose: "Customer onboarding and account servicing"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "passport_number", purpose: "Fraud screening and payment verification", retention: "36 months after contract end"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "pincode", purpose: "Know-your-customer record keeping", retention: "24 months after account closure"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "ppt_no", purpose: "Payroll and benefits administration", retention: "24 months after account closure"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "res_addr", purpose: "Know-your-customer record keeping", retention: "24 months after account closure"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "salary_account_number", purpose: "Payroll and benefits administration", retention: "36 months after contract end"}
+  - {source_key: "finance/payments.csv", table: "payments", column: "uidai_number", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "customer_name", purpose: "Employee records administration"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "dob", purpose: "Employee records administration", retention: "Deleted after 90 days"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "driver_license_number", purpose: "Know-your-customer record keeping", retention: "24 months after account closure"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "email_address", purpose: "Payroll and benefits administration", retention: "Deleted after 90 days"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "first_name", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "fname", purpose: "Payroll and benefits administration", retention: "Deleted after 90 days"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "ifsc", purpose: "Fraud screening and payment verification", retention: "7 years from end of financial year"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "lng", purpose: "Customer support and complaint handling", retention: "7 years from end of financial year"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "mobile_number", purpose: "Order fulfilment and delivery", retention: "7 years from end of financial year"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "msisdn", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "nominee_name", purpose: "Customer support and complaint handling", retention: "Deleted after 90 days"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "personal_email", purpose: "Customer onboarding and account servicing", retention: "12 months after last activity"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "upi_handle", purpose: "Fraud screening and payment verification", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "hr/employees.csv", table: "employees", column: "zip_code", purpose: "Employee records administration", retention: "24 months after account closure"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "aadhaar_no", purpose: "Payroll and benefits administration", retention: "Deleted after 90 days"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "aadhaar_number", purpose: "Payroll and benefits administration", retention: "12 months after last activity"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "account_holder_name", purpose: "Marketing communication (opt-in customers only)", retention: "Until the support case is closed plus 6 months"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "applicant_name", purpose: "Fraud screening and payment verification", retention: "12 months after last activity"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "bank_account_number", purpose: "Customer support and complaint handling", retention: "Deleted after 90 days"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "contact_no", retention: "Deleted after 90 days"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "driver_licence_no", purpose: "Marketing communication (opt-in customers only)", retention: "7 years from end of financial year"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "mobile", purpose: "Payroll and benefits administration"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "office_address", purpose: "Know-your-customer record keeping", retention: "Deleted after 90 days"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "pan", purpose: "Employee records administration"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "passport", purpose: "Marketing communication (opt-in customers only)", retention: "36 months after contract end"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "postal_address", purpose: "Marketing communication (opt-in customers only)", retention: "24 months after account closure"}
+  - {source_key: "ops/orders.csv", table: "orders", column: "telephone", retention: "12 months after last activity"}

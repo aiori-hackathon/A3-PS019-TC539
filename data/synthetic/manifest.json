@@ -1,0 +1,91 @@
+{
+  "columns_by_group": {
+    "negative_name_lookalike": 39,
+    "negative_plain": 74,
+    "negative_value_lookalike": 20,
+    "positive_opaque_name": 25,
+    "positive_standard_name": 114
+  },
+  "columns_total": 272,
+  "generator": "scripts/generate_synthetic_dataset.py",
+  "metadata_declarations_for_positive_columns": {
+    "complete": 102,
+    "missing_purpose": 10,
+    "missing_retention": 17,
+    "no_entry": 10
+  },
+  "negatives_total": 133,
+  "positives_by_class": {
+    "CONTACT_INFORMATION": 27,
+    "FINANCIAL_INFORMATION": 26,
+    "GOVERNMENT_IDENTIFIERS": 26,
+    "LOCATION_ADDRESS": 31,
+    "PERSONAL_IDENTITY": 29
+  },
+  "positives_total": 139,
+  "rows_per_table": 24,
+  "seed": 20261027,
+  "sources": [
+    {
+      "columns": 27,
+      "rows": 24,
+      "source_key": "app.db",
+      "table": "branches"
+    },
+    {
+      "columns": 27,
+      "rows": 24,
+      "source_key": "app.db",
+      "table": "inventory"
+    },
+    {
+      "columns": 28,
+      "rows": 24,
+      "source_key": "app.db",
+      "table": "kyc_records"
+    },
+    {
+      "columns": 28,
+      "rows": 24,
+      "source_key": "app.db",
+      "table": "members"
+    },
+    {
+      "columns": 27,
+      "rows": 24,
+      "source_key": "app.db",
+      "table": "web_events"
+    },
+    {
+      "columns": 27,
+      "rows": 24,
+      "source_key": "crm/archive/customers.csv",
+      "table": "customers"
+    },
+    {
+      "columns": 27,
+      "rows": 24,
+      "source_key": "crm/customers.csv",
+      "table": "customers"
+    },
+    {
+      "columns": 27,
+      "rows": 24,
+      "source_key": "finance/payments.csv",
+      "table": "payments"
+    },
+    {
+      "columns": 27,
+      "rows": 24,
+      "source_key": "hr/employees.csv",
+      "table": "employees"
+    },
+    {
+      "columns": 27,
+      "rows": 24,
+      "source_key": "ops/orders.csv",
+      "table": "orders"
+    }
+  ],
+  "tables": 10
+}

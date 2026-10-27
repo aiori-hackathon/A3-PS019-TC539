@@ -1,0 +1,22 @@
+# SYNTHETIC, TEAM-AUTHORED LABELS for the provisional TEST_CLASS_* taxonomy.
+# They exist to exercise the evaluation pipeline (TP, FP, FN and undefined metrics).
+# They say nothing about real personal-data classes or general detection accuracy.
+# The set deliberately contains misses and false positives.
+label_origin: team_authored_synthetic
+sources:
+  - source_key: customers.csv
+    positives:
+      - {table: customers, column: tc1_alpha, class_id: TEST_CLASS_1}
+      - {table: customers, column: TC2Beta, class_id: TEST_CLASS_2}
+      - {table: customers, column: opaque_col_7, class_id: TEST_CLASS_5}
+      - {table: customers, column: tc1_tc2_combo, class_id: TEST_CLASS_1}
+      - {table: customers, column: tc4_extra, class_id: TEST_CLASS_4}
+  - source_key: a/people.csv
+    positives:
+      - {table: people, column: tc1_ref, class_id: TEST_CLASS_1}
+  - source_key: b/people.csv
+    positives: []
+  - source_key: app.db
+    positives:
+      - {table: accounts, column: tc5_code, class_id: TEST_CLASS_5}
+      - {table: events, column: tc2_ref, class_id: TEST_CLASS_2}
