@@ -1,0 +1,33 @@
+# PROVISIONAL FIXTURE RULES.
+# These rules pair with config/classes.provisional.yaml. The class ids are neutral
+# placeholders, so the patterns are neutral synthetic MARKER tokens (tc1 ... tc5). They are
+# NOT claims about what personal data looks like and they are NOT organizer-approved.
+# When the organizers confirm the five classes, write real rules for the confirmed ids and
+# set rules_status to "confirmed" (only allowed together with a confirmed taxonomy).
+#
+# Matching is on column NAMES only, never on cell values.
+#   token: the pattern's tokens occur as a contiguous run in the column name's tokens
+#   exact: the column name's tokens equal the pattern's tokens
+# YAML note: quote patterns such as "no", "yes", "on" or numbers so they stay strings.
+rules_status: provisional
+rules:
+  - id: RULE_TC1_TOKEN
+    class_id: TEST_CLASS_1
+    match: token
+    patterns: [tc1]
+  - id: RULE_TC2_TOKEN
+    class_id: TEST_CLASS_2
+    match: token
+    patterns: [tc2]
+  - id: RULE_TC3_TOKEN
+    class_id: TEST_CLASS_3
+    match: token
+    patterns: [tc3]
+  - id: RULE_TC4_EXACT
+    class_id: TEST_CLASS_4
+    match: exact
+    patterns: [tc4]
+  - id: RULE_TC5_TOKEN
+    class_id: TEST_CLASS_5
+    match: token
+    patterns: [tc5]

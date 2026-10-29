@@ -25,3 +25,9 @@ htmlcov/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Generated reports and local test output
+output/
+
+# Python test cache
+.pytest_cache/
