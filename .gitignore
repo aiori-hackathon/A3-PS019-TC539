@@ -31,3 +31,37 @@ output/
 
 # Python test cache
 .pytest_cache/
+
+
+# --- FieldLedger web UI/API (branch ui/frontend) ---
+# Frontend tooling, test output and the built bundle that the API serves
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
+playwright-report/
+test-results/
+*.tsbuildinfo
+src/fieldledger/web/static/
+npm-debug.log*
+.pnpm-debug.log*
+
+# Frontend environment files (an example file may be committed)
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Local uploads, workspaces, review annotations and generated reports (may hold user data)
+/uploads/
+/workspace/
+/workspaces/
+/reports/
+.fieldledger/
+fieldledger_workspace*/
+fieldledger_review_annotations*.json
+fieldledger_report.json
+fieldledger_inventory.csv
+fieldledger_summary.md
+fieldledger_evaluation.json

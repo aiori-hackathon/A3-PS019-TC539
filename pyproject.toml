@@ -11,6 +11,17 @@ dependencies = ["PyYAML"]
 
 [project.optional-dependencies]
 dev = ["pytest"]
+# Optional web UI/API (docs/api-contract.md). The core CLI does not need these.
+web = [
+    "fastapi>=0.162",
+    "uvicorn>=0.54",
+    "python-multipart>=0.0.32",
+]
+web-dev = [
+    "fieldledger[web]",
+    "httpx",
+    "pytest",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
