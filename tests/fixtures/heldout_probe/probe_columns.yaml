@@ -1,0 +1,109 @@
+# EXPLORATORY HELD-OUT PROBE for FieldLedger detection rules. NOT an independently validated benchmark.
+# Written by the same engineer who wrote the rules, AFTER the rules were frozen and AFTER that engineer
+# had seen the benchmark. Names here are not in the synthetic benchmark and were not used to write rules;
+# labels are the author's own judgement of the PS-019 taxonomy, assigned before the probe was run.
+# (Seven names that also occur in the synthetic benchmark were removed to keep the probe disjoint.)
+# Size is small (about 99 names): treat results as indicative only.
+# kind: standard = plain full-word keyword; abbreviation = abbreviated or opaque;
+#       variant = spelling/wording variant; lookalike/abbrev_lookalike/plain = not personal data.
+label_origin: author_judgement_exploratory
+columns:
+  - {name: "member_dob", label: "PERSONAL_IDENTITY", kind: "standard"}
+  - {name: "usr_gender", label: "PERSONAL_IDENTITY", kind: "standard"}
+  - {name: "age_yrs", label: "PERSONAL_IDENTITY", kind: "standard"}
+  - {name: "sex_cd", label: "PERSONAL_IDENTITY", kind: "standard"}
+  - {name: "applicant_nm", label: "PERSONAL_IDENTITY", kind: "abbreviation"}
+  - {name: "bdate", label: "PERSONAL_IDENTITY", kind: "abbreviation"}
+  - {name: "dt_birth", label: "PERSONAL_IDENTITY", kind: "abbreviation"}
+  - {name: "date_birth", label: "PERSONAL_IDENTITY", kind: "variant"}
+  - {name: "sur_name", label: "PERSONAL_IDENTITY", kind: "variant"}
+  - {name: "forename", label: "PERSONAL_IDENTITY", kind: "variant"}
+  - {name: "maiden_name", label: "PERSONAL_IDENTITY", kind: "variant"}
+  - {name: "usr_mobile", label: "CONTACT_INFORMATION", kind: "standard"}
+  - {name: "work_email_id", label: "CONTACT_INFORMATION", kind: "standard"}
+  - {name: "tel_nbr", label: "CONTACT_INFORMATION", kind: "abbreviation"}
+  - {name: "alt_ph", label: "CONTACT_INFORMATION", kind: "abbreviation"}
+  - {name: "whatsapp_no", label: "CONTACT_INFORMATION", kind: "abbreviation"}
+  - {name: "eml_addr", label: "CONTACT_INFORMATION", kind: "abbreviation"}
+  - {name: "mobl_no", label: "CONTACT_INFORMATION", kind: "abbreviation"}
+  - {name: "emergency_mob", label: "CONTACT_INFORMATION", kind: "abbreviation"}
+  - {name: "cellular", label: "CONTACT_INFORMATION", kind: "variant"}
+  - {name: "pan_num", label: "GOVERNMENT_IDENTIFIERS", kind: "standard"}
+  - {name: "passport_num", label: "GOVERNMENT_IDENTIFIERS", kind: "standard"}
+  - {name: "uidai_no", label: "GOVERNMENT_IDENTIFIERS", kind: "standard"}
+  - {name: "voter_id_no", label: "GOVERNMENT_IDENTIFIERS", kind: "standard"}
+  - {name: "dl_nbr", label: "GOVERNMENT_IDENTIFIERS", kind: "abbreviation"}
+  - {name: "dlic_no", label: "GOVERNMENT_IDENTIFIERS", kind: "abbreviation"}
+  - {name: "elector_id", label: "GOVERNMENT_IDENTIFIERS", kind: "variant"}
+  - {name: "pancard", label: "GOVERNMENT_IDENTIFIERS", kind: "variant"}
+  - {name: "permanent_account_no", label: "GOVERNMENT_IDENTIFIERS", kind: "variant"}
+  - {name: "bank_ifsc_code", label: "FINANCIAL_INFORMATION", kind: "standard"}
+  - {name: "vpa_handle", label: "FINANCIAL_INFORMATION", kind: "standard"}
+  - {name: "payer_vpa", label: "FINANCIAL_INFORMATION", kind: "standard"}
+  - {name: "beneficiary_acct_no", label: "FINANCIAL_INFORMATION", kind: "standard"}
+  - {name: "acct_nbr", label: "FINANCIAL_INFORMATION", kind: "abbreviation"}
+  - {name: "card_nbr", label: "FINANCIAL_INFORMATION", kind: "abbreviation"}
+  - {name: "savings_acct", label: "FINANCIAL_INFORMATION", kind: "abbreviation"}
+  - {name: "iban", label: "FINANCIAL_INFORMATION", kind: "variant"}
+  - {name: "cardno", label: "FINANCIAL_INFORMATION", kind: "variant"}
+  - {name: "cvv", label: "FINANCIAL_INFORMATION", kind: "variant"}
+  - {name: "street_addr", label: "LOCATION_ADDRESS", kind: "standard"}
+  - {name: "residence_addr", label: "LOCATION_ADDRESS", kind: "standard"}
+  - {name: "area_pincode", label: "LOCATION_ADDRESS", kind: "standard"}
+  - {name: "lat_long", label: "LOCATION_ADDRESS", kind: "standard"}
+  - {name: "location_gps", label: "LOCATION_ADDRESS", kind: "standard"}
+  - {name: "billing_addr", label: "LOCATION_ADDRESS", kind: "standard"}
+  - {name: "city_pin", label: "LOCATION_ADDRESS", kind: "abbreviation"}
+  - {name: "adr_line_1", label: "LOCATION_ADDRESS", kind: "abbreviation"}
+  - {name: "latlng", label: "LOCATION_ADDRESS", kind: "abbreviation"}
+  - {name: "street_name", label: "LOCATION_ADDRESS", kind: "variant"}
+  - {name: "email_provider", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "email_open_rate", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "email_subject", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "email_frequency", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "phone_type", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "phone_plan", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "phone_usage_minutes", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "mobile_data_gb", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "mobile_plan_name", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "address_changes_count", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "address_book_size", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "bluetooth_address", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "gateway_address", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "broadcast_address", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "zip_code_count", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "pincode_serviceable", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "pan_card_status", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "aadhaar_verified_flag", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "upi_transaction_count", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "upi_daily_limit", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "bank_account_type", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "dob_format", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "birthday_discount_pct", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "full_name_length", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "gps_sampling_rate_hz", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "geolocation_enabled", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "ticket_age_days", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "voter_list_version", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "passport_office_code", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "contact_info_updated_at", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "addr_changed_at", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "grid_cell_number", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "coordinate_reference_system", label: "NOT_PERSONAL_DATA", kind: "lookalike"}
+  - {name: "ph_level", label: "NOT_PERSONAL_DATA", kind: "abbrev_lookalike"}
+  - {name: "mob_spawn_rate", label: "NOT_PERSONAL_DATA", kind: "abbrev_lookalike"}
+  - {name: "dl_speed_kbps", label: "NOT_PERSONAL_DATA", kind: "abbrev_lookalike"}
+  - {name: "cell_voltage", label: "NOT_PERSONAL_DATA", kind: "abbrev_lookalike"}
+  - {name: "pin_attempts", label: "NOT_PERSONAL_DATA", kind: "abbrev_lookalike"}
+  - {name: "x_coordinate", label: "NOT_PERSONAL_DATA", kind: "abbrev_lookalike"}
+  - {name: "shipping_zone", label: "NOT_PERSONAL_DATA", kind: "plain"}
+  - {name: "created_by", label: "NOT_PERSONAL_DATA", kind: "plain"}
+  - {name: "product_sku", label: "NOT_PERSONAL_DATA", kind: "plain"}
+  - {name: "warehouse_id", label: "NOT_PERSONAL_DATA", kind: "plain"}
+  - {name: "delivery_slot", label: "NOT_PERSONAL_DATA", kind: "plain"}
+  - {name: "session_duration_s", label: "NOT_PERSONAL_DATA", kind: "plain"}
+  - {name: "batch_no", label: "NOT_PERSONAL_DATA", kind: "plain"}
+  - {name: "invoice_ref", label: "NOT_PERSONAL_DATA", kind: "plain"}
+  - {name: "device_model", label: "NOT_PERSONAL_DATA", kind: "plain"}
+  - {name: "col_12", label: "NOT_PERSONAL_DATA", kind: "plain"}
+  - {name: "ref_9", label: "NOT_PERSONAL_DATA", kind: "plain"}

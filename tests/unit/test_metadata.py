@@ -698,14 +698,16 @@ def test_committed_metadata_file_loads(real_metadata):
 
 
 def test_detector_output_links_with_recorded_gap_counts(real_report):
+    # Pinned for the CURRENT config/rules.yaml (in-sample tuned; see DETECTION_QUALITY_REPORT.md).
+    # Baseline rules (d3ab9c2) gave 146 flagged, 84/8/13/0/41 and 24 orphans.
     s = real_report.summary
-    assert s.flagged_columns == 146 and s.ambiguous_columns == 3
+    assert s.flagged_columns == 139 and s.ambiguous_columns == 3
     assert dict(s.by_status) == {
-        "complete": 84, "missing_purpose": 8, "missing_retention": 13, "missing_both": 0, "no_entry": 41,
+        "complete": 101, "missing_purpose": 10, "missing_retention": 17, "missing_both": 0, "no_entry": 11,
     }
-    assert (s.metadata_entries, s.orphan_entries, s.unmatched_entries) == (129, 24, 0)
+    assert (s.metadata_entries, s.orphan_entries, s.unmatched_entries) == (129, 1, 0)
     assert real_report.rules_status == "provisional" and real_report.taxonomy_status == "confirmed"
-    assert len(real_report.gap_fields) == 146 - 84
+    assert len(real_report.gap_fields) == 139 - 101
 
 
 def test_real_report_exports_no_cell_values_paths_or_declaration_text(real_report, real_metadata):
@@ -760,9 +762,10 @@ def test_ground_truth_oracle_confirms_the_join_but_is_never_used_to_build_it(
     assert got["no_entry"] == expected["no_entry"] == 10 and got["missing_both"] == 0
     assert report.summary.flagged_columns == 139
 
-    # The 24 orphans are labelled positives the name-only detector missed.
+    # The orphans are labelled positives the name-only detector missed (24 with the baseline
+    # rules; 1 with the current rules: tax_ref).
     truth = {(s.source_key, t, c) for s in labels.sources for (t, c, _) in s.positives}
     flagged = {f.column_identity for f in findings}
     orphans = {e.column_identity for e in real_report.orphan_entries}
     assert orphans == {c for c in truth - flagged if c in {e.column_identity for e in real_metadata.entries}}
-    assert len(orphans) == 24
+    assert len(orphans) == 1

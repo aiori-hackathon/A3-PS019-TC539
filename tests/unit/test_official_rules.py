@@ -57,6 +57,12 @@ DETECTED = [  # name -> the single class expected
     ("credit_card", FI), ("upi_id", FI), ("vpa", FI),
     ("home_address", LA), ("pincode", LA), ("pin_code", LA), ("postal_code", LA),
     ("zip", LA), ("latitude", LA), ("gps_lat", LA), ("geolocation", LA),
+    # abbreviations and concatenated spellings recognised by the *_ABBREV rules
+    ("fname", PI), ("cust_nm", PI), ("d_o_b", PI), ("gndr", PI), ("yrs_old", PI),
+    ("ph_no", CI), ("cell_no", CI), ("mob", CI), ("tel_no", CI), ("phonenumber", CI),
+    ("dl_no", GI), ("adhar_no", GI), ("firstname", PI), ("fullname", PI),
+    ("ifs_cd", FI), ("cc_num", FI), ("bk_acct", FI), ("pay_handle", FI), ("cardno", FI),
+    ("addr_ln1", LA), ("res_addr", LA), ("geo_pt", LA), ("postcode", LA),
 ]
 
 
@@ -65,16 +71,33 @@ def test_standard_names_are_detected(ruleset, name, expected):
     assert classes_for(ruleset, name) == {expected}
 
 
-KNOWN_FALSE_POSITIVES = [  # keyword in the name, but the column is not personal data
-    ("ip_address", {LA}), ("phone_model", {CI}), ("email_opt_in", {CI}),
-    ("account_age_days", {PI}), ("age_of_account", {PI}), ("passport_expiry", {GI}),
-    ("pan_india_flag", {GI}), ("upi_enabled", {FI}), ("zip_archive_name", {LA}),
-    ("gender_ratio", {PI}),
+# Keyword look-alikes that the baseline rules flagged and that now carry a narrow exclusion.
+# Each (name -> set()) pair is a deliberate, evidence-based exclusion in config/rules.yaml.
+EXCLUDED_LOOKALIKES = [
+    "ip_address", "phone_model", "email_opt_in", "account_age_days", "age_of_account",
+    "passport_expiry", "pan_india_flag", "upi_enabled", "zip_archive_name", "gender_ratio",
+    "mac_address", "web_address", "gps_enabled", "mobile_os", "voter_turnout_pct",
+    "address_count", "latitude_precision", "email_bounce_count",
 ]
 
 
-@pytest.mark.parametrize("name, expected", KNOWN_FALSE_POSITIVES)
-def test_known_name_lookalikes_are_flagged_as_candidates(ruleset, name, expected):
+@pytest.mark.parametrize("name", EXCLUDED_LOOKALIKES)
+def test_excluded_name_lookalikes_are_no_longer_candidates(ruleset, name):
+    assert classes_for(ruleset, name) == set()
+
+
+# Look-alikes with NO exclusion (exclusions are narrow on purpose), so they are still flagged.
+# These document the remaining false-positive families; a name-only rule cannot do better
+# without a broader, riskier exclusion.
+REMAINING_KNOWN_FALSE_POSITIVES = [
+    ("name", {PI}),  # exact "name": may hold product names (value-dependent)
+    ("email_provider", {CI}), ("phone_type", {CI}), ("address_book_size", {LA}),
+    ("aadhaar_verified_flag", {GI}), ("upi_daily_limit", {FI}), ("bluetooth_address", {LA}),
+]
+
+
+@pytest.mark.parametrize("name, expected", REMAINING_KNOWN_FALSE_POSITIVES)
+def test_unexcluded_lookalikes_are_still_flagged_as_candidates(ruleset, name, expected):
     assert classes_for(ruleset, name) == expected
 
 
@@ -90,9 +113,8 @@ def test_ambiguous_names_keep_one_finding_per_class(ruleset, name, expected):
     assert classes_for(ruleset, name) == expected
 
 
-KNOWN_MISSES = [  # real personal data under an opaque or abbreviated name
-    "fname", "cust_nm", "d_o_b", "gndr", "yrs_old", "ph_no", "em_id", "cell_no", "mob",
-    "uid_no", "dl_no", "epic_no", "acc_num", "cc_num", "ifs_cd", "pin", "addr_ln1", "geo_pt",
+KNOWN_MISSES = [  # real personal data under an opaque, abbreviated or variant name
+    "tax_ref", "forename", "maiden_name", "date_birth", "iban", "cvv", "street_name", "latlng",
     "col_17",
 ]
 

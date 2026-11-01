@@ -1,0 +1,123 @@
+# COLUMN-NAME RULES for the official PS-019 taxonomy (config/classes.yaml).
+#
+# STATUS: provisional. The TAXONOMY is confirmed, but these rules are a first-draft,
+# team-authored heuristic that has only been evaluated on a team-authored synthetic dataset.
+# Change rules_status to "confirmed" only when the team deliberately freezes the rules
+# for its final evaluation. This status says nothing about legal or organizer approval.
+#
+# Matching is on column NAMES only, never on cell values, so these rules CANNOT detect
+# every personal-data column and WILL flag some columns that are not personal data:
+#   - misses: abbreviated or opaque names (for example nm, ph_no, uid_no, addr_ln1, col_17)
+#   - false positives: names that contain a keyword but hold something else (for example
+#     ip_address, phone_model, email_opt_in, account_age_days, passport_expiry)
+#   - ambiguity: email_address matches CONTACT_INFORMATION (email) and LOCATION_ADDRESS
+#     (address); both findings are kept and listed for review, never silently resolved.
+# Every finding is a technical candidate for human review, not a legal determination.
+#
+# token: the pattern's tokens occur as a contiguous run in the column name's tokens
+#        (names are split on punctuation, underscores and camelCase, then casefolded)
+# exact: the column name's tokens equal the pattern's tokens
+# Quote patterns such as "no", "yes", "on" or numbers so YAML keeps them as strings.
+rules_status: provisional
+rules:
+  # ---- PERSONAL_IDENTITY: name, date of birth, gender, age
+  - id: RULE_PI_NAME_PHRASE
+    class_id: PERSONAL_IDENTITY
+    match: token
+    patterns:
+      - full name
+      - first name
+      - last name
+      - middle name
+      - given name
+      - family name
+      - surname
+      - customer name
+      - employee name
+      - applicant name
+      - holder name
+      - nominee name
+  - id: RULE_PI_NAME_EXACT
+    class_id: PERSONAL_IDENTITY
+    match: exact
+    patterns: [name]
+  - id: RULE_PI_DOB
+    class_id: PERSONAL_IDENTITY
+    match: token
+    patterns: [dob, date of birth, birth date, birthdate, birthday]
+  - id: RULE_PI_GENDER
+    class_id: PERSONAL_IDENTITY
+    match: token
+    patterns: [gender, sex]
+  - id: RULE_PI_AGE
+    class_id: PERSONAL_IDENTITY
+    match: token
+    patterns: [age]
+
+  # ---- CONTACT_INFORMATION: email address, phone number
+  - id: RULE_CI_EMAIL
+    class_id: CONTACT_INFORMATION
+    match: token
+    patterns: [email, e mail]
+  - id: RULE_CI_PHONE
+    class_id: CONTACT_INFORMATION
+    match: token
+    patterns: [phone, mobile, telephone, msisdn, contact number, contact no]
+
+  # ---- GOVERNMENT_IDENTIFIERS: Aadhaar, PAN, passport, voter ID, driving licence
+  - id: RULE_GI_AADHAAR
+    class_id: GOVERNMENT_IDENTIFIERS
+    match: token
+    patterns: [aadhaar, aadhar, uidai]
+  - id: RULE_GI_PAN
+    class_id: GOVERNMENT_IDENTIFIERS
+    match: token
+    patterns: [pan]
+  - id: RULE_GI_PASSPORT
+    class_id: GOVERNMENT_IDENTIFIERS
+    match: token
+    patterns: [passport]
+  - id: RULE_GI_VOTER
+    class_id: GOVERNMENT_IDENTIFIERS
+    match: token
+    patterns: [voter]
+  - id: RULE_GI_LICENCE
+    class_id: GOVERNMENT_IDENTIFIERS
+    match: token
+    patterns:
+      - driving licence
+      - driving license
+      - driver licence
+      - driver license
+
+  # ---- FINANCIAL_INFORMATION: bank account number, IFSC, card number, UPI ID
+  - id: RULE_FI_BANK_ACCOUNT
+    class_id: FINANCIAL_INFORMATION
+    match: token
+    patterns: [bank account, account number, account no, acct no]
+  - id: RULE_FI_IFSC
+    class_id: FINANCIAL_INFORMATION
+    match: token
+    patterns: [ifsc]
+  - id: RULE_FI_CARD
+    class_id: FINANCIAL_INFORMATION
+    match: token
+    patterns: [card number, card no, credit card, debit card]
+  - id: RULE_FI_UPI
+    class_id: FINANCIAL_INFORMATION
+    match: token
+    patterns: [upi, vpa]
+
+  # ---- LOCATION_ADDRESS: postal address, PIN code, geo-coordinates
+  - id: RULE_LA_ADDRESS
+    class_id: LOCATION_ADDRESS
+    match: token
+    patterns: [address]
+  - id: RULE_LA_POSTAL_CODE
+    class_id: LOCATION_ADDRESS
+    match: token
+    patterns: [pincode, pin code, postal code, zip, zipcode, zip code]
+  - id: RULE_LA_GEO
+    class_id: LOCATION_ADDRESS
+    match: token
+    patterns: [latitude, longitude, lat, lon, lng, geolocation, geo location, gps]

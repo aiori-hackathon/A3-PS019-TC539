@@ -52,12 +52,16 @@ EXPECTED_SOURCES = [
 
 # (TP, FP, FN) per official class for seed 20261027 and config/rules.yaml. A change to the
 # rules, the pools or the seed changes these numbers on purpose: update them deliberately.
+# Recorded per-class (TP, FP, FN) on the synthetic benchmark for the CURRENT config/rules.yaml.
+# IN-SAMPLE: the abbreviation aliases and exclusions were written after inspecting this benchmark,
+# so these numbers pin behaviour (to catch silent changes); they are NOT an accuracy claim.
+# Baseline rules (commit d3ab9c2) scored (24,7,5) (22,10,5) (21,3,5) (21,4,5) (26,11,5).
 EXPECTED_COUNTS = {
-    "PERSONAL_IDENTITY": (24, 7, 5),
-    "CONTACT_INFORMATION": (22, 10, 5),
-    "GOVERNMENT_IDENTIFIERS": (21, 3, 5),
-    "FINANCIAL_INFORMATION": (21, 4, 5),
-    "LOCATION_ADDRESS": (26, 11, 5),
+    "PERSONAL_IDENTITY": (29, 1, 0),
+    "CONTACT_INFORMATION": (27, 0, 0),
+    "GOVERNMENT_IDENTIFIERS": (25, 0, 1),
+    "FINANCIAL_INFORMATION": (26, 2, 0),
+    "LOCATION_ADDRESS": (31, 1, 0),
 }
 
 
@@ -165,10 +169,16 @@ def test_ambiguous_multi_class_columns_are_reported_not_resolved(workspace, regi
 def test_opaque_and_lookalike_columns_behave_as_documented(workspace, registry, ruleset):
     _, findings, _ = full_run(workspace, registry, ruleset)
     flagged = {f.column_name for f in findings}
-    for opaque in ("ph_no", "uid_no", "fname", "addr_ln1", "acc_num"):  # real data, missed by name
-        assert opaque not in flagged
+    # abbreviated names that the baseline rules missed are now candidates ...
+    for abbreviated in ("ph_no", "uid_no", "fname", "addr_ln1", "acc_num"):
+        assert abbreviated in flagged
+    # ... but a genuinely opaque name is still missed: a name-only rule cannot reach it
+    assert "tax_ref" not in flagged
+    # look-alikes with a narrow, evidence-based exclusion are no longer candidates ...
     for lookalike in ("ip_address", "phone_model", "email_opt_in", "account_age_days"):
-        assert lookalike in flagged  # keyword look-alikes are candidates (labelled not personal)
+        assert lookalike not in flagged
+    # ... while a value-dependent look-alike remains flagged (labelled not personal)
+    assert "name" in flagged
     for value_lookalike in ("order_ref", "tracking_number", "invoice_code", "batch_serial"):
         assert value_lookalike not in flagged  # innocuous names, personal-looking values
 
