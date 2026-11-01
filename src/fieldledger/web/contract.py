@@ -126,6 +126,7 @@ ENDPOINTS = (
     ("DELETE", "/api/workspace/files"),
     ("POST", "/api/workspace/metadata"),
     ("DELETE", "/api/workspace/metadata"),
+    ("POST", "/api/workspace/bundled"),
     ("DELETE", "/api/workspace"),
     ("POST", "/api/scans"),
     ("GET", "/api/scans/{scan_id}"),

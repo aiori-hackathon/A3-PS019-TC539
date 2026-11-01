@@ -146,6 +146,7 @@ the confirmed taxonomy. The taxonomy and rules are displayed read-only.
 | `DELETE` | `/api/workspace/files` | Remove one file (`?source_key=`) |
 | `POST` | `/api/workspace/metadata` | Upload the purpose/retention metadata YAML |
 | `DELETE` | `/api/workspace/metadata` | Remove the metadata file |
+| `POST` | `/api/workspace/bundled` | Load the bundled synthetic data and metadata into an empty workspace |
 | `DELETE` | `/api/workspace` | Clear the whole workspace |
 | `POST` | `/api/scans` | Start a scan (202, background job) |
 | `GET` | `/api/scans/{scan_id}` | Scan status |
@@ -177,7 +178,7 @@ slashes, and servers and proxies decode encoded slashes inconsistently.
 
 **`GET /api/workspace`** returns `{"exists": false}` or
 `{exists, revision, files[{source_key,type,size_bytes}], metadata: null | {entries, origin},
-review_count, expires_at, idle_timeout_seconds}`. `revision` increases on every change to files or
+review_count, expires_at, idle_timeout_seconds}`. `latest_scan_id` (additive, `string | null`) names the latest scan so that a reloaded page can find its results. `revision` increases on every change to files or
 metadata. Reading this endpoint counts as activity and resets the idle timer.
 
 **`POST /api/workspace/files`**: multipart with repeated `files` parts and an equally long, ordered
@@ -201,6 +202,12 @@ symlinks and are never executed.
 `table`, `column`). It returns `{entries, origin}` or `invalid_metadata` with the backend's
 safe message. Metadata `source_key` values must equal the uploaded relative paths exactly, and
 entries that match nothing are reported by the metadata endpoint, not hidden.
+
+**`POST /api/workspace/bundled`** (additive, v1) copies the repository's bundled synthetic CSV and
+SQLite files, with their relative paths, and `data/synthetic/metadata/purpose_retention.yaml` into an
+**empty** workspace so that the demo runs on real project data without browsing for files. It returns
+the workspace state, `bad_request` if the workspace already holds files or metadata, or
+`benchmark_unavailable` if the data is not present.
 
 **`DELETE /api/workspace`** removes the workspace, scans, exports, review annotations and the
 metadata file. See section 10 for what "removed" does and does not mean.
@@ -282,7 +289,7 @@ Results endpoints return `scan_not_ready` until `state` is `succeeded`.
 **`GET /api/scans/{id}/summary`**: `{generated_at, sources_scanned, sources_failed,
 total_findings, by_class{class_id: n}, by_source{source_key: n}, ambiguous_columns, metadata: null
 | {flagged_columns, ambiguous_columns, by_status{}, metadata_entries, orphan_entries,
-unmatched_entries}, review_counts{}, taxonomy_status, rules_status, notices}`. All numbers come
+unmatched_entries}, review_counts{}, taxonomy_status, rules_status, notices}`. The summary also carries `by_class_metadata{class_id: {status: n}}` (additive; `null` without metadata), counted per finding. All numbers come
 from the backend objects (findings, `GapReport.summary`); none are computed from guesses.
 
 **`GET /api/scans/{id}/sources`**: `{sources[{source_key, source_type, type_basis, finding_count,
@@ -490,9 +497,9 @@ repository's data). **`GET /api/evaluations/{id}`** returns `{state, result}`. T
 backend's evaluation JSON unchanged (`scope_notice`, `label_origin`, per-class counts, precision
 and recall, ambiguous columns) plus `scope: "synthetic_benchmark"` and `micro{tp, fp, fn,
 predicted, labelled_positive, precision, recall, derived: true}`. The micro figures are sums over
-the per-class counts and are marked as derived, because the backend does not emit them. Expected
-values from the checked-in synthetic set: TP 114, FP 35, FN 25, 149 predicted, 139 labelled
-positive. They are shown only after a run, always with the synthetic-benchmark warning, and are
+the per-class counts and are marked as derived, because the backend does not emit them. The figures are
+computed at run time from the current detector and rules; this document does not fix them (they
+change when the detection engine changes). They are shown only after a run, always with the synthetic-benchmark warning, and are
 not described as real-world accuracy.
 
 The backend reports counts only. It does not say which columns were missed or wrongly flagged,
