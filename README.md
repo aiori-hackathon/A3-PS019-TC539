@@ -83,6 +83,10 @@ Previously verified result: **628 passed, 3 skipped**. Rerun the tests to confir
 - The prototype does not determine lawful basis, establish compliance, or infer every data flow.
 - Human review is required before acting on findings.
 
+## Demo Video
+
+[Watch the FieldLedger project demonstration](https://youtu.be/_CIeXKjhdGY)
+
 ## Team Introduction Video
 
 [Watch Team Cipher's AIORI-3 introduction video](https://youtu.be/VfAXWC7Eesw)
